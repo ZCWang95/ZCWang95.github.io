@@ -11,6 +11,7 @@
             --asu-gold: #FFC627;
             --text-dark: #1a1a1a;
             --text-light: #4a4a4a;
+            --text-meta: #666;
             --bg-light: #ffffff;
             --bg-off-white: #f5f5f5;
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -98,8 +99,9 @@
         .hero h3 { font-size: 1.1rem; color: var(--text-light); font-weight: 400; margin-bottom: 10px; }
 
         .tributary-link {
-            color: var(--text-dark); /* Neutral color as requested */
+            color: var(--text-dark);
             text-decoration: underline;
+            transition: color 0.3s;
         }
         .tributary-link:hover {
             color: var(--asu-maroon);
@@ -148,11 +150,19 @@
 
         .section-title {
             font-size: 1.8rem;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             color: var(--asu-maroon);
             border-bottom: 2px solid var(--asu-gold);
             display: inline-block;
             padding-bottom: 5px;
+        }
+
+        .section-subtitle {
+            display: block;
+            margin-bottom: 30px;
+            color: var(--text-meta);
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
         h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--asu-maroon); }
@@ -196,14 +206,8 @@
 
         .publication-item {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             margin-bottom: 25px;
-        }
-
-        .pub-number {
-            font-weight: 700;
-            color: var(--text-light);
-            min-width: 30px;
         }
 
         .pub-content { flex-grow: 1; }
@@ -223,17 +227,12 @@
         }
         .pub-link:hover { color: var(--asu-gold); border-bottom-color: var(--asu-gold); }
 
-        .tag {
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 8px;
+        .icon {
+            font-size: 1rem;
+            margin-right: 6px;
             vertical-align: middle;
-            font-weight: 700;
-            text-transform: uppercase;
+            opacity: 0.8;
         }
-        .tag-ai { background: #fce4ec; color: var(--asu-maroon); }
-        .tag-status { background: #fff3e0; color: #e65100; }
 
         /* --- Mentoring Grid --- */
         .mentoring-list {
@@ -245,7 +244,7 @@
         .student-item {
             display: flex;
             align-items: center;
-            padding: 10px 15px;
+            padding: 12px 15px;
             background-color: var(--bg-off-white);
             border-radius: 5px;
         }
@@ -304,7 +303,6 @@
 
                 <div class="btn-container">
                     <a href="mailto:zwang307@asu.edu" class="btn btn-primary">Email Me</a>
-                    <!-- Removed Tributary Button -->
                     <a href="https://scholar.google.com/citations?user=AUZIYQFe_kU8a_KW1dcra1HJGb_pR4xJMujqrPpG6rpIEz1YodCq8ayvudWGGle5r1Wnk7KnnFNy6rhKLVZHCkK09ATwUQUy-6IF8lt_gHqycW6aTJjyjccgQTN2aGPe-4H_3rtk67iVkMThl0F0Bhpi8YoEgoykVisVPH2R" target="_blank" class="btn btn-outline">Google Scholar</a>
                 </div>
             </div>
@@ -391,51 +389,47 @@
     <!-- Publications -->
     <section id="publications">
         <h2 class="section-title">Publications</h2>
-        <p><em>* denotes corresponding author.</em></p>
+        <span class="section-subtitle">13 Published | 6 In Review/Preparation</span>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;"><em>* denotes corresponding author.</em></p>
 
         <!-- Category 1: ML/AI + CubeSats -->
         <div class="pub-category">ML/AI + CubeSats</div>
         
         <div class="publication-item">
-            <div class="pub-number">19.</div>
             <div class="pub-content">
-                <div class="pub-title">Monitoring Forest Thinning using Deep Learning based on NAIP and SkySat Imagery <span class="tag tag-ai">ML/AI</span> <span class="tag tag-status">Forestry</span></div>
+                <div class="pub-title"><span class="icon">🌲</span>Monitoring Forest Thinning using Deep Learning based on NAIP and SkySat Imagery</div>
                 <div class="pub-authors"><strong>Wang, Z.</strong>, Malvi, S., & Vivoni, E.R.</div>
                 <div class="pub-meta"><span class="pub-journal">(In Preparation)</span></div>
             </div>
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">18.</div>
             <div class="pub-content">
-                <div class="pub-title">Inundation Frequency and Bathymetry Determine Vegetation Dynamics in Dryland Playas and Livestock Tanks <span class="tag tag-ai">ML/AI</span></div>
+                <div class="pub-title"><span class="icon">🌊</span>Inundation Frequency and Bathymetry Determine Vegetation Dynamics in Dryland Playas and Livestock Tanks</div>
                 <div class="pub-authors"><strong>Wang, Z.</strong>, Vivoni, E.R., & Kimsal, C.</div>
                 <div class="pub-meta"><span class="pub-journal">Remote Sensing of Environment (In Preparation)</span></div>
             </div>
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">16.</div>
             <div class="pub-content">
-                <div class="pub-title">Revealing Differential Impacts of Historic Colorado River Water Cuts on Crop Types and Water Use from CubeSats <span class="tag tag-ai">ML/AI</span></div>
+                <div class="pub-title"><span class="icon">🌾</span>Revealing Differential Impacts of Historic Colorado River Water Cuts on Crop Types and Water Use from CubeSats</div>
                 <div class="pub-authors">Sharma, S., <strong>Wang, Z.*</strong>, Vivoni, E. R., French, A., Wisniewski, E., Barzin, R., & Guillevic, P. C.</div>
                 <div class="pub-meta"><span class="pub-journal">Agricultural Water Management (In Review)</span></div>
             </div>
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">14.</div>
             <div class="pub-content">
-                <div class="pub-title">Crop Change Detection After Drought Declarations in Arizona using Planet Fusion and Planetary Variables <span class="tag tag-ai">ML/AI</span></div>
+                <div class="pub-title"><span class="icon">🌾</span>Crop Change Detection After Drought Declarations in Arizona using Planet Fusion and Planetary Variables</div>
                 <div class="pub-authors">Barzin, R., Vivoni, E.R., French, A.N., <strong>Wang, Z.</strong>, & Guillevic, P.C.</div>
                 <div class="pub-meta"><span class="pub-journal">Computers and Electronics in Agriculture (In Review)</span></div>
             </div>
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">13.</div>
             <div class="pub-content">
-                <div class="pub-title">Spatiotemporal Patterns of Intermittent Snow Cover from PlanetScope Imagery using Deep Learning <span class="tag tag-ai">ML/AI</span></div>
+                <div class="pub-title"><span class="icon">❄️</span>Spatiotemporal Patterns of Intermittent Snow Cover from PlanetScope Imagery using Deep Learning</div>
                 <div class="pub-authors"><strong>Wang, Z.*</strong>, Baskar, J. V. J., Sarma, M., Svoma, B., & Vivoni, E.R.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Geophysical Research Letters, 2025</span>
@@ -445,9 +439,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">6.</div>
             <div class="pub-content">
-                <div class="pub-title">Mapping Flash Flood Hazards in Arid Regions using CubeSats</div>
+                <div class="pub-title"><span class="icon">🌊</span>Mapping Flash Flood Hazards in Arid Regions using CubeSats</div>
                 <div class="pub-authors"><strong>Wang, Z.*</strong>, & Vivoni, E.R.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Remote Sensing, 2022</span>
@@ -457,9 +450,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">5.</div>
             <div class="pub-content">
-                <div class="pub-title">Detecting Streamflow in Dryland Rivers using CubeSats</div>
+                <div class="pub-title"><span class="icon">💧</span>Detecting Streamflow in Dryland Rivers using CubeSats</div>
                 <div class="pub-authors"><strong>Wang, Z.*</strong>, & Vivoni, E.R.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Geophysical Research Letters, 2022</span>
@@ -473,9 +465,8 @@
         <div class="pub-category">Remote Sensing Hydrology</div>
 
         <div class="publication-item">
-            <div class="pub-number">7.</div>
             <div class="pub-content">
-                <div class="pub-title">On the Value of Satellite Remote Sensing to Reduce Uncertainties in Regional Simulations of the Colorado River</div>
+                <div class="pub-title"><span class="icon">🛰️</span>On the Value of Satellite Remote Sensing to Reduce Uncertainties in Regional Simulations of the Colorado River</div>
                 <div class="pub-authors">Xiao, M., Mascaro, G., <strong>Wang, Z.</strong>, Whitney, K.M., & Vivoni, E.R.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Hydrology and Earth System Sciences, 2022</span>
@@ -485,9 +476,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">3.</div>
             <div class="pub-content">
-                <div class="pub-title">Water Conservation Potential of Modified Turf Grass Irrigation in Urban Parks of Phoenix, Arizona</div>
+                <div class="pub-title"><span class="icon">🏙️</span>Water Conservation Potential of Modified Turf Grass Irrigation in Urban Parks of Phoenix, Arizona</div>
                 <div class="pub-authors">Kindler, M., Vivoni, E.R, Perez-Ruiz, E.R., & <strong>Wang, Z.</strong></div>
                 <div class="pub-meta">
                     <span class="pub-journal">Ecohydrology, 2022</span>
@@ -497,9 +487,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">1.</div>
             <div class="pub-content">
-                <div class="pub-title">Abiotic Mechanisms Drive Enhanced Evaporative Losses under Urban Oasis Conditions</div>
+                <div class="pub-title"><span class="icon">🏙️</span>Abiotic Mechanisms Drive Enhanced Evaporative Losses under Urban Oasis Conditions</div>
                 <div class="pub-authors">Vivoni, E. R., Kindler, M., <strong>Wang, Z.</strong>, & Pérez‐Ruiz, E. R.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Geophysical Research Letters, 2020</span>
@@ -513,27 +502,24 @@
         <div class="pub-category">Hydrologic Modeling</div>
 
         <div class="publication-item">
-            <div class="pub-number">17.</div>
             <div class="pub-content">
-                <div class="pub-title">Revisiting the Application of the Variable Infiltration Capacity Model in the Colorado River Basin using Earth Observation Datasets</div>
+                <div class="pub-title"><span class="icon">💻</span>Revisiting the Application of the Variable Infiltration Capacity Model in the Colorado River Basin using Earth Observation Datasets</div>
                 <div class="pub-authors"><strong>Wang, Z.</strong>, Vivoni, E.R., Ghimire, S., Whitney, K.M., Xiao, M., Yue, H., Templeton, N.P., & Mascaro, G.</div>
                 <div class="pub-meta"><span class="pub-journal">Scientific Reports (In Review)</span></div>
             </div>
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">15.</div>
             <div class="pub-content">
-                <div class="pub-title">Fall Soil Moisture Modulates Snow-Streamflow Dynamics in the Colorado River Basin</div>
+                <div class="pub-title"><span class="icon">❄️</span>Fall Soil Moisture Modulates Snow-Streamflow Dynamics in the Colorado River Basin</div>
                 <div class="pub-authors">Ghimire, S., Vivoni, E.R., & <strong>Wang, Z.</strong></div>
                 <div class="pub-meta"><span class="pub-journal">Water Resources Research (In Review)</span></div>
             </div>
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">12.</div>
             <div class="pub-content">
-                <div class="pub-title">Hydrometeorological Forecast Skill of the North American Multi-Model Ensemble in the Upper Colorado River Basin</div>
+                <div class="pub-title"><span class="icon">💻</span>Hydrometeorological Forecast Skill of the North American Multi-Model Ensemble in the Upper Colorado River Basin</div>
                 <div class="pub-authors">Yue, H., Mascaro, G., <strong>Wang, Z.</strong>, & Vivoni, E.R.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Journal of Hydrometeorology, 2024</span>
@@ -543,9 +529,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">11.</div>
             <div class="pub-content">
-                <div class="pub-title">Sensitivity of Rain-snow Partition in Simulating Hydrologic Responses of the Colorado River to Future Warming</div>
+                <div class="pub-title"><span class="icon">❄️</span>Sensitivity of Rain-snow Partition in Simulating Hydrologic Responses of the Colorado River to Future Warming</div>
                 <div class="pub-authors"><strong>Wang, Z.*</strong>, Xiao, M., Mascaro, G., Whitney, K.M., & Vivoni, E.R.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Water Resources Research, 2024</span>
@@ -555,9 +540,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">10.</div>
             <div class="pub-content">
-                <div class="pub-title">Impacts of Snow Surface Aerodynamic Resistance on Snow Water Equivalent Simulations in Forested Regions</div>
+                <div class="pub-title"><span class="icon">❄️</span>Impacts of Snow Surface Aerodynamic Resistance on Snow Water Equivalent Simulations in Forested Regions</div>
                 <div class="pub-authors">Tang, X., Tang, D., <strong>Wang, Z.</strong>, Cederstrom, C.J., & Vivoni, E.R.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Hydrological Processes, 2023</span>
@@ -567,9 +551,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">9.</div>
             <div class="pub-content">
-                <div class="pub-title">A Stakeholder Engaged Approach to Anticipating Forest Disturbance Impacts in the Colorado River Basin under Climate Change <span class="tag tag-status">Forestry</span></div>
+                <div class="pub-title"><span class="icon">🌲</span>A Stakeholder Engaged Approach to Anticipating Forest Disturbance Impacts in the Colorado River Basin under Climate Change</div>
                 <div class="pub-authors">Whitney, K.M., Vivoni, E.R., <strong>Wang, Z.</strong>, et al.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Journal of Water Resources Planning and Management, 2023</span>
@@ -579,9 +562,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">8.</div>
             <div class="pub-content">
-                <div class="pub-title">Spatial Attribution of Declining Colorado River Streamflow under Future Warming</div>
+                <div class="pub-title"><span class="icon">💧</span>Spatial Attribution of Declining Colorado River Streamflow under Future Warming</div>
                 <div class="pub-authors">Whitney, K.M., Vivoni, E.R., Bohn, T.J., <strong>Wang, Z.</strong>, et al.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">Journal of Hydrology, 2023</span>
@@ -591,9 +573,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">4.</div>
             <div class="pub-content">
-                <div class="pub-title">Individualized and Combined Effects of Future Urban Growth and Climate Change on Irrigation Water Use in Central Arizona</div>
+                <div class="pub-title"><span class="icon">🚿</span>Individualized and Combined Effects of Future Urban Growth and Climate Change on Irrigation Water Use in Central Arizona</div>
                 <div class="pub-authors"><strong>Wang, Z.</strong>, & Vivoni, E.R.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">JAWRA, 2022</span>
@@ -603,9 +584,8 @@
         </div>
 
         <div class="publication-item">
-            <div class="pub-number">2.</div>
             <div class="pub-content">
-                <div class="pub-title">A Multiyear Assessment of Irrigation Cooling Capacity in Agricultural and Urban Settings of Central Arizona</div>
+                <div class="pub-title"><span class="icon">🚿</span>A Multiyear Assessment of Irrigation Cooling Capacity in Agricultural and Urban Settings of Central Arizona</div>
                 <div class="pub-authors"><strong>Wang, Z.</strong>, Vivoni, E.R., Bohn, T.J., & Wang, Z-H.</div>
                 <div class="pub-meta">
                     <span class="pub-journal">JAWRA, 2021</span>
