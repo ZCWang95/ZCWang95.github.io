@@ -97,6 +97,14 @@
         .hero h2 { font-size: 1.2rem; color: var(--text-dark); font-weight: 600; }
         .hero h3 { font-size: 1.1rem; color: var(--text-light); font-weight: 400; margin-bottom: 10px; }
 
+        .tributary-link {
+            color: var(--text-dark); /* Neutral color as requested */
+            text-decoration: underline;
+        }
+        .tributary-link:hover {
+            color: var(--asu-maroon);
+        }
+
         .btn-container {
             display: flex;
             gap: 15px;
@@ -116,9 +124,6 @@
         .btn-primary { background-color: var(--asu-maroon); color: white; }
         .btn-primary:hover { background-color: #5c122a; }
         
-        .btn-gold { background-color: var(--asu-gold); color: var(--text-dark); }
-        .btn-gold:hover { background-color: #eeb111; }
-
         .btn-outline { border: 1px solid var(--text-light); color: var(--text-dark); }
         .btn-outline:hover { border-color: var(--asu-maroon); color: var(--asu-maroon); }
 
@@ -291,7 +296,7 @@
             <div>
                 <h1>Dr. Zhaocheng Wang</h1>
                 <h2>Research Scientist | <a href="https://chi.asu.edu/" target="_blank" style="color:inherit; text-decoration:underline;">Center for Hydrologic Innovations</a>, ASU</h2>
-                <h2>Co-founder & Innovation Director | <a href="https://tributary.llc/" target="_blank" style="color:var(--asu-maroon); text-decoration:underline;">Tributary</a></h2>
+                <h2>Co-founder & Innovation Director | <a href="https://tributary.llc/" target="_blank" class="tributary-link">Tributary</a></h2>
                 
                 <div class="news-badge">
                     <strong>🏆 Latest Achievement:</strong> Awarded the <em>Fulton Founder in Residence (FIRE) Fellowship</em> (2025) to commercialize AI-driven water intelligence.
@@ -299,7 +304,7 @@
 
                 <div class="btn-container">
                     <a href="mailto:zwang307@asu.edu" class="btn btn-primary">Email Me</a>
-                    <a href="https://tributary.llc/" target="_blank" class="btn btn-gold">Visit Tributary</a>
+                    <!-- Removed Tributary Button -->
                     <a href="https://scholar.google.com/citations?user=AUZIYQFe_kU8a_KW1dcra1HJGb_pR4xJMujqrPpG6rpIEz1YodCq8ayvudWGGle5r1Wnk7KnnFNy6rhKLVZHCkK09ATwUQUy-6IF8lt_gHqycW6aTJjyjccgQTN2aGPe-4H_3rtk67iVkMThl0F0Bhpi8YoEgoykVisVPH2R" target="_blank" class="btn btn-outline">Google Scholar</a>
                 </div>
             </div>
@@ -388,8 +393,8 @@
         <h2 class="section-title">Publications</h2>
         <p><em>* denotes corresponding author.</em></p>
 
-        <!-- Category 1: AI + CubeSats -->
-        <div class="pub-category">AI + CubeSats & Forestry</div>
+        <!-- Category 1: ML/AI + CubeSats -->
+        <div class="pub-category">ML/AI + CubeSats</div>
         
         <div class="publication-item">
             <div class="pub-number">19.</div>
@@ -410,6 +415,15 @@
         </div>
 
         <div class="publication-item">
+            <div class="pub-number">16.</div>
+            <div class="pub-content">
+                <div class="pub-title">Revealing Differential Impacts of Historic Colorado River Water Cuts on Crop Types and Water Use from CubeSats <span class="tag tag-ai">ML/AI</span></div>
+                <div class="pub-authors">Sharma, S., <strong>Wang, Z.*</strong>, Vivoni, E. R., French, A., Wisniewski, E., Barzin, R., & Guillevic, P. C.</div>
+                <div class="pub-meta"><span class="pub-journal">Agricultural Water Management (In Review)</span></div>
+            </div>
+        </div>
+
+        <div class="publication-item">
             <div class="pub-number">14.</div>
             <div class="pub-content">
                 <div class="pub-title">Crop Change Detection After Drought Declarations in Arizona using Planet Fusion and Planetary Variables <span class="tag tag-ai">ML/AI</span></div>
@@ -426,68 +440,6 @@
                 <div class="pub-meta">
                     <span class="pub-journal">Geophysical Research Letters, 2025</span>
                     <a href="https://doi.org/10.1029/2025GL116582" target="_blank" class="pub-link">[Read Paper]</a>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Category 2: Snow Hydrology -->
-        <div class="pub-category">Snow Hydrology</div>
-
-        <div class="publication-item">
-            <div class="pub-number">15.</div>
-            <div class="pub-content">
-                <div class="pub-title">Fall Soil Moisture Modulates Snow-Streamflow Dynamics in the Colorado River Basin</div>
-                <div class="pub-authors">Ghimire, S., Vivoni, E.R., & <strong>Wang, Z.</strong></div>
-                <div class="pub-meta"><span class="pub-journal">Water Resources Research (In Review)</span></div>
-            </div>
-        </div>
-
-        <div class="publication-item">
-            <div class="pub-number">11.</div>
-            <div class="pub-content">
-                <div class="pub-title">Sensitivity of Rain-snow Partition in Simulating Hydrologic Responses of the Colorado River to Future Warming</div>
-                <div class="pub-authors"><strong>Wang, Z.*</strong>, Xiao, M., Mascaro, G., Whitney, K.M., & Vivoni, E.R.</div>
-                <div class="pub-meta">
-                    <span class="pub-journal">Water Resources Research, 2024</span>
-                    <a href="https://doi.org/10.1029/2023WR035801" target="_blank" class="pub-link">[Read Paper]</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="publication-item">
-            <div class="pub-number">10.</div>
-            <div class="pub-content">
-                <div class="pub-title">Impacts of Snow Surface Aerodynamic Resistance on Snow Water Equivalent Simulations in Forested Regions</div>
-                <div class="pub-authors">Tang, X., Tang, D., <strong>Wang, Z.</strong>, Cederstrom, C.J., & Vivoni, E.R.</div>
-                <div class="pub-meta">
-                    <span class="pub-journal">Hydrological Processes, 2023</span>
-                    <a href="https://doi.org/10.1002/hyp.14985" target="_blank" class="pub-link">[Read Paper]</a>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Category 3: Remote Sensing & Hydrology -->
-        <div class="pub-category">Remote Sensing & Hydrology</div>
-
-        <div class="publication-item">
-            <div class="pub-number">16.</div>
-            <div class="pub-content">
-                <div class="pub-title">Revealing Differential Impacts of Historic Colorado River Water Cuts on Crop Types and Water Use from CubeSats</div>
-                <div class="pub-authors">Sharma, S., <strong>Wang, Z.*</strong>, Vivoni, E. R., French, A., Wisniewski, E., Barzin, R., & Guillevic, P. C.</div>
-                <div class="pub-meta"><span class="pub-journal">Agricultural Water Management (In Review)</span></div>
-            </div>
-        </div>
-
-        <div class="publication-item">
-            <div class="pub-number">7.</div>
-            <div class="pub-content">
-                <div class="pub-title">On the Value of Satellite Remote Sensing to Reduce Uncertainties in Regional Simulations of the Colorado River</div>
-                <div class="pub-authors">Xiao, M., Mascaro, G., <strong>Wang, Z.</strong>, Whitney, K.M., & Vivoni, E.R.</div>
-                <div class="pub-meta">
-                    <span class="pub-journal">Hydrology and Earth System Sciences, 2022</span>
-                    <a href="https://doi.org/10.5194/hess-26-5627-2022" target="_blank" class="pub-link">[Read Paper]</a>
                 </div>
             </div>
         </div>
@@ -516,6 +468,22 @@
             </div>
         </div>
 
+
+        <!-- Category 2: Remote Sensing Hydrology -->
+        <div class="pub-category">Remote Sensing Hydrology</div>
+
+        <div class="publication-item">
+            <div class="pub-number">7.</div>
+            <div class="pub-content">
+                <div class="pub-title">On the Value of Satellite Remote Sensing to Reduce Uncertainties in Regional Simulations of the Colorado River</div>
+                <div class="pub-authors">Xiao, M., Mascaro, G., <strong>Wang, Z.</strong>, Whitney, K.M., & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Hydrology and Earth System Sciences, 2022</span>
+                    <a href="https://doi.org/10.5194/hess-26-5627-2022" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
         <div class="publication-item">
             <div class="pub-number">3.</div>
             <div class="pub-content">
@@ -524,18 +492,6 @@
                 <div class="pub-meta">
                     <span class="pub-journal">Ecohydrology, 2022</span>
                     <a href="https://doi.org/10.1002/eco.2399" target="_blank" class="pub-link">[Read Paper]</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="publication-item">
-            <div class="pub-number">2.</div>
-            <div class="pub-content">
-                <div class="pub-title">A Multiyear Assessment of Irrigation Cooling Capacity in Agricultural and Urban Settings of Central Arizona</div>
-                <div class="pub-authors"><strong>Wang, Z.</strong>, Vivoni, E.R., Bohn, T.J., & Wang, Z-H.</div>
-                <div class="pub-meta">
-                    <span class="pub-journal">JAWRA, 2021</span>
-                    <a href="https://doi.org/10.1111/1752-1688.12920" target="_blank" class="pub-link">[Read Paper]</a>
                 </div>
             </div>
         </div>
@@ -553,7 +509,7 @@
         </div>
 
 
-        <!-- Category 4: Hydrologic Modeling -->
+        <!-- Category 3: Hydrologic Modeling -->
         <div class="pub-category">Hydrologic Modeling</div>
 
         <div class="publication-item">
@@ -566,6 +522,15 @@
         </div>
 
         <div class="publication-item">
+            <div class="pub-number">15.</div>
+            <div class="pub-content">
+                <div class="pub-title">Fall Soil Moisture Modulates Snow-Streamflow Dynamics in the Colorado River Basin</div>
+                <div class="pub-authors">Ghimire, S., Vivoni, E.R., & <strong>Wang, Z.</strong></div>
+                <div class="pub-meta"><span class="pub-journal">Water Resources Research (In Review)</span></div>
+            </div>
+        </div>
+
+        <div class="publication-item">
             <div class="pub-number">12.</div>
             <div class="pub-content">
                 <div class="pub-title">Hydrometeorological Forecast Skill of the North American Multi-Model Ensemble in the Upper Colorado River Basin</div>
@@ -573,6 +538,30 @@
                 <div class="pub-meta">
                     <span class="pub-journal">Journal of Hydrometeorology, 2024</span>
                     <a href="#" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">11.</div>
+            <div class="pub-content">
+                <div class="pub-title">Sensitivity of Rain-snow Partition in Simulating Hydrologic Responses of the Colorado River to Future Warming</div>
+                <div class="pub-authors"><strong>Wang, Z.*</strong>, Xiao, M., Mascaro, G., Whitney, K.M., & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Water Resources Research, 2024</span>
+                    <a href="https://doi.org/10.1029/2023WR035801" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">10.</div>
+            <div class="pub-content">
+                <div class="pub-title">Impacts of Snow Surface Aerodynamic Resistance on Snow Water Equivalent Simulations in Forested Regions</div>
+                <div class="pub-authors">Tang, X., Tang, D., <strong>Wang, Z.</strong>, Cederstrom, C.J., & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Hydrological Processes, 2023</span>
+                    <a href="https://doi.org/10.1002/hyp.14985" target="_blank" class="pub-link">[Read Paper]</a>
                 </div>
             </div>
         </div>
@@ -609,6 +598,18 @@
                 <div class="pub-meta">
                     <span class="pub-journal">JAWRA, 2022</span>
                     <a href="https://doi.org/10.1111/1752-1688.13005" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">2.</div>
+            <div class="pub-content">
+                <div class="pub-title">A Multiyear Assessment of Irrigation Cooling Capacity in Agricultural and Urban Settings of Central Arizona</div>
+                <div class="pub-authors"><strong>Wang, Z.</strong>, Vivoni, E.R., Bohn, T.J., & Wang, Z-H.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">JAWRA, 2021</span>
+                    <a href="https://doi.org/10.1111/1752-1688.12920" target="_blank" class="pub-link">[Read Paper]</a>
                 </div>
             </div>
         </div>
