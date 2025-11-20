@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Academic website of Dr. Zhaocheng Wang, Scientist & Entrepreneur at ASU.">
+    <title>Zhaocheng Wang | Hydrology & AI</title>
+    <style>
+        :root {
+            --asu-maroon: #8C1D40;
+            --asu-gold: #FFC627;
+            --text-dark: #1a1a1a;
+            --text-light: #4a4a4a;
+            --bg-light: #ffffff;
+            --bg-off-white: #f5f5f5;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* --- Navigation --- */
+        header {
+            background-color: #fff;
+            border-bottom: 3px solid var(--asu-maroon);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--asu-maroon);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--asu-maroon); }
+
+        /* --- Hero Section --- */
+        .hero {
+            margin-top: 80px;
+            padding: 60px 20px;
+            background-color: var(--bg-off-white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #e0e0e0;
+            border: 4px solid var(--asu-maroon);
+        }
+
+        .hero h1 { font-size: 2.2rem; margin-bottom: 0.2rem; color: var(--asu-maroon); }
+        .hero h2 { font-size: 1.2rem; color: var(--text-dark); font-weight: 600; }
+        .hero h3 { font-size: 1.1rem; color: var(--text-light); font-weight: 400; margin-bottom: 10px; }
+
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary { background-color: var(--asu-maroon); color: white; }
+        .btn-primary:hover { background-color: #5c122a; }
+        
+        .btn-gold { background-color: var(--asu-gold); color: var(--text-dark); }
+        .btn-gold:hover { background-color: #eeb111; }
+
+        .btn-outline { border: 1px solid var(--text-light); color: var(--text-dark); }
+        .btn-outline:hover { border-color: var(--asu-maroon); color: var(--asu-maroon); }
+
+        /* --- News Badge --- */
+        .news-badge {
+            background: white;
+            border-left: 5px solid var(--asu-gold);
+            padding: 15px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* --- Layout --- */
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--asu-maroon);
+            border-bottom: 2px solid var(--asu-gold);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--asu-maroon); }
+        h4 { font-size: 1.1rem; margin-bottom: 5px; font-weight: 700; }
+
+        /* --- Lists (Education, Appts) --- */
+        .cv-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: baseline;
+        }
+        .cv-left {
+            width: 140px;
+            font-weight: 700;
+            color: var(--asu-maroon);
+            flex-shrink: 0;
+        }
+        .cv-right { flex-grow: 1; }
+        .cv-right p { margin-bottom: 5px; }
+
+        /* --- Funding Cards --- */
+        .funding-card {
+            background: var(--bg-off-white);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border-left: 4px solid var(--asu-maroon);
+        }
+
+        /* --- Publications --- */
+        .pub-category {
+            background-color: #f4f4f4;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+            color: var(--asu-maroon);
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--asu-gold);
+        }
+
+        .publication-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .pub-number {
+            font-weight: 700;
+            color: var(--text-light);
+            min-width: 30px;
+        }
+
+        .pub-content { flex-grow: 1; }
+
+        .pub-title { font-weight: 600; color: var(--text-dark); font-size: 1.05rem; }
+        .pub-authors { color: var(--text-light); font-size: 0.95rem; margin: 3px 0; }
+        .pub-journal { font-style: italic; color: var(--asu-maroon); display: inline-block;}
+        
+        .pub-link {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 0.85rem;
+            color: var(--asu-maroon);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px dotted var(--asu-maroon);
+        }
+        .pub-link:hover { color: var(--asu-gold); border-bottom-color: var(--asu-gold); }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .tag-ai { background: #fce4ec; color: var(--asu-maroon); }
+        .tag-status { background: #fff3e0; color: #e65100; }
+
+        /* --- Mentoring Grid --- */
+        .mentoring-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .student-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: var(--bg-off-white);
+            border-radius: 5px;
+        }
+
+        .student-name {
+            font-weight: 700;
+            width: 220px;
+            color: var(--asu-maroon);
+        }
+
+        .student-role {
+            font-style: italic;
+            color: var(--text-light);
+            flex-grow: 1;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero-content { text-align: center; }
+            .cv-item { flex-direction: column; }
+            .cv-left { margin-bottom: 5px; }
+            .nav-links { display: none; } 
+            .student-item { flex-direction: column; align-items: flex-start; }
+            .student-name { width: 100%; margin-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">Zhaocheng Wang</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#funding">Funding</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#mentoring">Mentoring</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Upload headshot.jpg to GitHub -->
+            <img src="headshot.jpg" alt="Zhaocheng Wang" class="profile-img">
+            <div>
+                <h1>Dr. Zhaocheng Wang</h1>
+                <h2>Research Scientist | <a href="https://chi.asu.edu/" target="_blank" style="color:inherit; text-decoration:underline;">Center for Hydrologic Innovations</a>, ASU</h2>
+                <h2>Co-founder & Innovation Director | <a href="https://tributary.llc/" target="_blank" style="color:var(--asu-maroon); text-decoration:underline;">Tributary</a></h2>
+                
+                <div class="news-badge">
+                    <strong>🏆 Latest Achievement:</strong> Awarded the <em>Fulton Founder in Residence (FIRE) Fellowship</em> (2025) to commercialize AI-driven water intelligence.
+                </div>
+
+                <div class="btn-container">
+                    <a href="mailto:zwang307@asu.edu" class="btn btn-primary">Email Me</a>
+                    <a href="https://tributary.llc/" target="_blank" class="btn btn-gold">Visit Tributary</a>
+                    <a href="https://scholar.google.com/citations?user=AUZIYQFe_kU8a_KW1dcra1HJGb_pR4xJMujqrPpG6rpIEz1YodCq8ayvudWGGle5r1Wnk7KnnFNy6rhKLVZHCkK09ATwUQUy-6IF8lt_gHqycW6aTJjyjccgQTN2aGPe-4H_3rtk67iVkMThl0F0Bhpi8YoEgoykVisVPH2R" target="_blank" class="btn btn-outline">Google Scholar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p>
+            I am a Hydrologist and Research Scientist at the <a href="https://chi.asu.edu/" target="_blank" style="color:var(--asu-maroon); font-weight:600; text-decoration:none;">Center for Hydrologic Innovations</a> at Arizona State University, and the Co-founder of Tributary. 
+            My research operates at the intersection of <strong>Artificial Intelligence</strong>, <strong>Remote Sensing</strong>, and <strong>Hydrology</strong>, 
+            with a specific focus on <strong>forest and snow systems</strong> in the Western United States.
+        </p>
+        <p style="margin-top:15px;">
+            I specialize in developing Deep Learning architectures to process CubeSat imagery, enabling the detection of 
+            <strong>forest thinning</strong>, <strong>intermittent snow cover</strong>, and <strong>streamflow dynamics</strong>. 
+            My work aims to bridge the gap between academic innovation and real-world water management solutions.
+        </p>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience">
+        <h2 class="section-title">Appointments & Education</h2>
+        
+        <h3>Professional Appointments</h3>
+        <div class="cv-item">
+            <div class="cv-left">Apr 2025 – Present</div>
+            <div class="cv-right">
+                <strong>Research Scientist</strong><br>
+                Center for Hydrologic Innovations (CHI)<br>
+                School of Sustainable Engineering and the Built Environment, Arizona State University
+            </div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-left">May 2023 – Apr 2025</div>
+            <div class="cv-right">
+                <strong>Postdoctoral Scholar</strong><br>
+                School of Sustainable Engineering and the Built Environment, Arizona State University
+            </div>
+        </div>
+
+        <h3>Education</h3>
+        <div class="cv-item">
+            <div class="cv-left">2023</div>
+            <div class="cv-right">
+                <strong>Ph.D., Civil, Environmental and Sustainable Engineering</strong><br>
+                Arizona State University<br>
+                <em>Thesis: Innovations in Detecting and Modeling Dryland Hydrologic Changes</em>
+            </div>
+        </div>
+        <div class="cv-item">
+            <div class="cv-left">2017</div>
+            <div class="cv-right">
+                <strong>B.Eng., Water Science and Engineering</strong><br>
+                Hunan University, China
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding -->
+    <section id="funding">
+        <h2 class="section-title">Research Funding</h2>
+        
+        <div class="funding-card">
+            <h4>Arizona Water Innovation Initiative (2025-2026)</h4>
+            <p><strong>Project:</strong> Mapping Flow Regimes of Intermittent River and Ephemeral Streams (IRES) in Arizona to Support Water Resources Management</p>
+            <p><strong>Amount:</strong> $65,000 | <strong>Role:</strong> PI</p>
+        </div>
+
+        <div class="funding-card">
+            <h4>ASU+Planet Collaborative Research Seed Grant (2024-2025)</h4>
+            <p><strong>Project:</strong> Enhanced Snow Monitoring using Planet Data and Machine Learning</p>
+            <p><strong>Amount:</strong> $125,000 | <strong>Role:</strong> PI (Co-PI: E. Vivoni)</p>
+        </div>
+
+        <div class="funding-card">
+            <h4>ASU+Planet Collaborative Research Seed Grant (2024-2025)</h4>
+            <p><strong>Project:</strong> Crop Change Detection After Drought Shortage Declarations in Arizona using Planet Imagery and Planetary Variables</p>
+            <p><strong>Amount:</strong> $100,000 | <strong>Role:</strong> Co-PI (PI: E. Vivoni)</p>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+        <h2 class="section-title">Publications</h2>
+        <p><em>* denotes corresponding author.</em></p>
+
+        <!-- Category 1: AI + CubeSats -->
+        <div class="pub-category">AI + CubeSats & Forestry</div>
+        
+        <div class="publication-item">
+            <div class="pub-number">19.</div>
+            <div class="pub-content">
+                <div class="pub-title">Monitoring Forest Thinning using Deep Learning based on NAIP and SkySat Imagery <span class="tag tag-ai">ML/AI</span> <span class="tag tag-status">Forestry</span></div>
+                <div class="pub-authors"><strong>Wang, Z.</strong>, Malvi, S., & Vivoni, E.R.</div>
+                <div class="pub-meta"><span class="pub-journal">(In Preparation)</span></div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">18.</div>
+            <div class="pub-content">
+                <div class="pub-title">Inundation Frequency and Bathymetry Determine Vegetation Dynamics in Dryland Playas and Livestock Tanks <span class="tag tag-ai">ML/AI</span></div>
+                <div class="pub-authors"><strong>Wang, Z.</strong>, Vivoni, E.R., & Kimsal, C.</div>
+                <div class="pub-meta"><span class="pub-journal">Remote Sensing of Environment (In Preparation)</span></div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">14.</div>
+            <div class="pub-content">
+                <div class="pub-title">Crop Change Detection After Drought Declarations in Arizona using Planet Fusion and Planetary Variables <span class="tag tag-ai">ML/AI</span></div>
+                <div class="pub-authors">Barzin, R., Vivoni, E.R., French, A.N., <strong>Wang, Z.</strong>, & Guillevic, P.C.</div>
+                <div class="pub-meta"><span class="pub-journal">Computers and Electronics in Agriculture (In Review)</span></div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">13.</div>
+            <div class="pub-content">
+                <div class="pub-title">Spatiotemporal Patterns of Intermittent Snow Cover from PlanetScope Imagery using Deep Learning <span class="tag tag-ai">ML/AI</span></div>
+                <div class="pub-authors"><strong>Wang, Z.*</strong>, Baskar, J. V. J., Sarma, M., Svoma, B., & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Geophysical Research Letters, 2025</span>
+                    <a href="https://doi.org/10.1029/2025GL116582" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Category 2: Snow Hydrology -->
+        <div class="pub-category">Snow Hydrology</div>
+
+        <div class="publication-item">
+            <div class="pub-number">15.</div>
+            <div class="pub-content">
+                <div class="pub-title">Fall Soil Moisture Modulates Snow-Streamflow Dynamics in the Colorado River Basin</div>
+                <div class="pub-authors">Ghimire, S., Vivoni, E.R., & <strong>Wang, Z.</strong></div>
+                <div class="pub-meta"><span class="pub-journal">Water Resources Research (In Review)</span></div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">11.</div>
+            <div class="pub-content">
+                <div class="pub-title">Sensitivity of Rain-snow Partition in Simulating Hydrologic Responses of the Colorado River to Future Warming</div>
+                <div class="pub-authors"><strong>Wang, Z.*</strong>, Xiao, M., Mascaro, G., Whitney, K.M., & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Water Resources Research, 2024</span>
+                    <a href="https://doi.org/10.1029/2023WR035801" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">10.</div>
+            <div class="pub-content">
+                <div class="pub-title">Impacts of Snow Surface Aerodynamic Resistance on Snow Water Equivalent Simulations in Forested Regions</div>
+                <div class="pub-authors">Tang, X., Tang, D., <strong>Wang, Z.</strong>, Cederstrom, C.J., & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Hydrological Processes, 2023</span>
+                    <a href="https://doi.org/10.1002/hyp.14985" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Category 3: Remote Sensing & Hydrology -->
+        <div class="pub-category">Remote Sensing & Hydrology</div>
+
+        <div class="publication-item">
+            <div class="pub-number">16.</div>
+            <div class="pub-content">
+                <div class="pub-title">Revealing Differential Impacts of Historic Colorado River Water Cuts on Crop Types and Water Use from CubeSats</div>
+                <div class="pub-authors">Sharma, S., <strong>Wang, Z.*</strong>, Vivoni, E. R., French, A., Wisniewski, E., Barzin, R., & Guillevic, P. C.</div>
+                <div class="pub-meta"><span class="pub-journal">Agricultural Water Management (In Review)</span></div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">7.</div>
+            <div class="pub-content">
+                <div class="pub-title">On the Value of Satellite Remote Sensing to Reduce Uncertainties in Regional Simulations of the Colorado River</div>
+                <div class="pub-authors">Xiao, M., Mascaro, G., <strong>Wang, Z.</strong>, Whitney, K.M., & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Hydrology and Earth System Sciences, 2022</span>
+                    <a href="https://doi.org/10.5194/hess-26-5627-2022" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">6.</div>
+            <div class="pub-content">
+                <div class="pub-title">Mapping Flash Flood Hazards in Arid Regions using CubeSats</div>
+                <div class="pub-authors"><strong>Wang, Z.*</strong>, & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Remote Sensing, 2022</span>
+                    <a href="https://doi.org/10.3390/rs14174218" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">5.</div>
+            <div class="pub-content">
+                <div class="pub-title">Detecting Streamflow in Dryland Rivers using CubeSats</div>
+                <div class="pub-authors"><strong>Wang, Z.*</strong>, & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Geophysical Research Letters, 2022</span>
+                    <a href="https://doi.org/10.1029/2022GL098729" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">3.</div>
+            <div class="pub-content">
+                <div class="pub-title">Water Conservation Potential of Modified Turf Grass Irrigation in Urban Parks of Phoenix, Arizona</div>
+                <div class="pub-authors">Kindler, M., Vivoni, E.R, Perez-Ruiz, E.R., & <strong>Wang, Z.</strong></div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Ecohydrology, 2022</span>
+                    <a href="https://doi.org/10.1002/eco.2399" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">2.</div>
+            <div class="pub-content">
+                <div class="pub-title">A Multiyear Assessment of Irrigation Cooling Capacity in Agricultural and Urban Settings of Central Arizona</div>
+                <div class="pub-authors"><strong>Wang, Z.</strong>, Vivoni, E.R., Bohn, T.J., & Wang, Z-H.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">JAWRA, 2021</span>
+                    <a href="https://doi.org/10.1111/1752-1688.12920" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">1.</div>
+            <div class="pub-content">
+                <div class="pub-title">Abiotic Mechanisms Drive Enhanced Evaporative Losses under Urban Oasis Conditions</div>
+                <div class="pub-authors">Vivoni, E. R., Kindler, M., <strong>Wang, Z.</strong>, & Pérez‐Ruiz, E. R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Geophysical Research Letters, 2020</span>
+                    <a href="https://doi.org/10.1029/2020GL090123" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Category 4: Hydrologic Modeling -->
+        <div class="pub-category">Hydrologic Modeling</div>
+
+        <div class="publication-item">
+            <div class="pub-number">17.</div>
+            <div class="pub-content">
+                <div class="pub-title">Revisiting the Application of the Variable Infiltration Capacity Model in the Colorado River Basin using Earth Observation Datasets</div>
+                <div class="pub-authors"><strong>Wang, Z.</strong>, Vivoni, E.R., Ghimire, S., Whitney, K.M., Xiao, M., Yue, H., Templeton, N.P., & Mascaro, G.</div>
+                <div class="pub-meta"><span class="pub-journal">Scientific Reports (In Review)</span></div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">12.</div>
+            <div class="pub-content">
+                <div class="pub-title">Hydrometeorological Forecast Skill of the North American Multi-Model Ensemble in the Upper Colorado River Basin</div>
+                <div class="pub-authors">Yue, H., Mascaro, G., <strong>Wang, Z.</strong>, & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Journal of Hydrometeorology, 2024</span>
+                    <a href="#" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">9.</div>
+            <div class="pub-content">
+                <div class="pub-title">A Stakeholder Engaged Approach to Anticipating Forest Disturbance Impacts in the Colorado River Basin under Climate Change <span class="tag tag-status">Forestry</span></div>
+                <div class="pub-authors">Whitney, K.M., Vivoni, E.R., <strong>Wang, Z.</strong>, et al.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Journal of Water Resources Planning and Management, 2023</span>
+                    <a href="https://doi.org/10.1061/JWRMD5.WRENG-5905" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">8.</div>
+            <div class="pub-content">
+                <div class="pub-title">Spatial Attribution of Declining Colorado River Streamflow under Future Warming</div>
+                <div class="pub-authors">Whitney, K.M., Vivoni, E.R., Bohn, T.J., <strong>Wang, Z.</strong>, et al.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">Journal of Hydrology, 2023</span>
+                    <a href="https://doi.org/10.1016/j.jhydrol.2022.129125" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-number">4.</div>
+            <div class="pub-content">
+                <div class="pub-title">Individualized and Combined Effects of Future Urban Growth and Climate Change on Irrigation Water Use in Central Arizona</div>
+                <div class="pub-authors"><strong>Wang, Z.</strong>, & Vivoni, E.R.</div>
+                <div class="pub-meta">
+                    <span class="pub-journal">JAWRA, 2022</span>
+                    <a href="https://doi.org/10.1111/1752-1688.13005" target="_blank" class="pub-link">[Read Paper]</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Mentoring -->
+    <section id="mentoring">
+        <h2 class="section-title">Mentoring</h2>
+        
+        <div class="mentoring-list">
+            <div class="student-item">
+                <div class="student-name">Jaya Venkatesh</div>
+                <div class="student-role">M.S., 2024– | Now SDE at NVIDIA RAPIDS</div>
+            </div>
+            <div class="student-item">
+                <div class="student-name">Shrey Malvi</div>
+                <div class="student-role">M.S., 2024–2025 | Now SDE at Amazon AGI</div>
+            </div>
+            <div class="student-item">
+                <div class="student-name">Maneesh Sistla</div>
+                <div class="student-role">M.S., 2024–2025 | Now SDE at Amazon AWS FinTech</div>
+            </div>
+            <div class="student-item">
+                <div class="student-name">Tianna Chemello</div>
+                <div class="student-role">M.S., 2023–2024 | Now Civil Engineer at WSP USA</div>
+            </div>
+            <div class="student-item">
+                <div class="student-name">Swastik Ghimire</div>
+                <div class="student-role">M.S., 2023–2025 | Now Civil Engineer at Bowman Consulting</div>
+            </div>
+            <div class="student-item">
+                <div class="student-name">Shraddha Sharma</div>
+                <div class="student-role">M.S., 2023–2025 | Now Designer at Colliers Engineering</div>
+            </div>
+            <div class="student-item">
+                <div class="student-name">Nivetha M. Kumar</div>
+                <div class="student-role">M.S., 2025</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Honors -->
+    <section id="awards">
+        <h2 class="section-title">Selected Awards</h2>
+        <ul style="margin-left: 20px; line-height: 1.8;">
+            <li><strong>Fulton Founder in Residence (FIRE) Fellowship</strong> (2025)</li>
+            <li>Paul F. Boulos Excellence in Computational Hydraulics/Hydrology Award (2023)</li>
+            <li>Babbitt Center Dissertation Fellowship Program, Lincoln Institute (2022)</li>
+            <li>Quentin Mees Research Award, Arizona Water Association (2021)</li>
+        </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p><strong>Email:</strong> zwang307@asu.edu</p>
+        <p><strong>Address:</strong> 777 E. University Dr., WCPH, Room 510, Tempe, AZ 85287</p>
+    </section>
+
+    <footer style="background: var(--text-dark); color: white; text-align: center; padding: 30px; margin-top: 40px;">
+        <p>&copy; 2025 Zhaocheng Wang. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
